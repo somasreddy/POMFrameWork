@@ -46,10 +46,7 @@ public class ContactsPageTest extends BaseTest {
 
     @DataProvider
     public Object[][] getCRMTestData() {
-	Object data[][];
-
-	data = BaseUtil.getTestDataFromXl("contacts");
-
+	Object data[][] = BaseUtil.getTestDataFromXl("contacts");
 	return data;
     }
 
@@ -57,7 +54,7 @@ public class ContactsPageTest extends BaseTest {
     public void validateCreateNewContact(String fn, String ln, String status, String country, String mobileNo) {
 	homePage.clickContact();
 	// contactsPage.createNewContact("Mr.", "Tom", "Peter", "Google");
-	contactsPage.createContact( fn,ln,status,country,mobileNo);
+	contactsPage.createContact(fn, ln, status, country, mobileNo);
 
     }
 }
