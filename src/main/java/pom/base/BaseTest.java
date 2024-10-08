@@ -24,14 +24,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.DataProvider;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-import pom.util.BaseUtil;
 
 public class BaseTest {
 
@@ -56,21 +52,17 @@ public class BaseTest {
     public static void BrowserInitialize() {
 	String browser = prop.getProperty("browser");
 	if (browser.equalsIgnoreCase("chrome")) {
-	    WebDriverManager.chromedriver().setup();
 	    ChromeOptions opt = new ChromeOptions();
 	    opt.addArguments("--incognito");
 	    opt.setAcceptInsecureCerts(true);
 	    driver = new ChromeDriver(opt);
 	} else if (browser.equalsIgnoreCase("firefox")) {
-	    WebDriverManager.firefoxdriver().setup();
 	    FirefoxOptions opt = new FirefoxOptions();
 	    driver = new FirefoxDriver(opt);
 	} else if (browser.equalsIgnoreCase("edge")) {
-	    WebDriverManager.edgedriver().setup();
 	    EdgeOptions opt = new EdgeOptions();
 	    driver = new EdgeDriver(opt);
 	} else if (browser.equalsIgnoreCase("safari")) {
-	    WebDriverManager.safaridriver().setup();
 	    SafariOptions opt = new SafariOptions();
 	    driver = new SafariDriver(opt);
 	}
